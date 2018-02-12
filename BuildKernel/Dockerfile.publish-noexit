@@ -1,0 +1,10 @@
+FROM cross-compiler-linux-2.6.35.3-imx28:latest
+
+# Update the Clone the existing kernel source
+RUN cd linux-2.6.35.3-imx28 \
+ && git pull origin docker-compat
+
+# Copy the build script and run it
+ADD build-kernel.sh .
+
+CMD ["/bin/bash", "./build-kernel.sh", "--publish-url", "rsync://%ENTER_URL_HERE%", "--no-exit"]
