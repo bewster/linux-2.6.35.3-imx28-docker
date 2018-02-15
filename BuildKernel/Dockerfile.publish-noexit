@@ -1,4 +1,4 @@
-FROM cross-compiler-linux-2.6.35.3-imx28:latest
+FROM bewster/cross-compiler-linux-2.6.35.3-imx28:latest
 
 # Update the Clone the existing kernel source
 RUN cd linux-2.6.35.3-imx28 \
