@@ -1,7 +1,7 @@
 FROM debian:jessie
 
 LABEL com.gbelectronics.vendor="GB Electronics (UK) Ltd" \
-      com.gbelectronics.version="0.3-DEV"
+      com.gbelectronics.version="1.0"
 
 # Add the packages required
 RUN dpkg --add-architecture i386                       \
@@ -17,9 +17,3 @@ RUN dpkg --add-architecture i386                       \
 		git                                            \
  && apt-get clean                                      \
  && rm -rf /var/lib/apt/lists/*
-
-# Clone the existing kernel source
-RUN useradd -ms /bin/bash ts-4600
-USER ts-4600
-WORKDIR /home/ts-4600
-RUN git clone -b docker-compat https://github.com/bewster/linux-2.6.35.3-imx28.git
